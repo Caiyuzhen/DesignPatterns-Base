@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>构造器模式</title>
+	<h4>构造器模式</h4>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		.header {
+			display: flex;
+			width: 500px;
+		}
+
+		.header li {
+			flex: 1;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			border: 1px solid black;
+		}
+
+		.box {
+			position: relative;
+			height: 200px;
+		}
+
+		.box li {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 500px;
+			height: 200px;
+			background-color: #ff5db0;
+			display: none;
+		}
+
+		.header .active {
+			background-color: blueviolet;
+		}
+
+		.box .active {
+			display: block;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container1">
+		<ul class="header">
+			<li class="active">aaa</li>
+			<li>bbb</li>
+			<li>ccc</li>
+			<li>ddd</li>
+			<li>eee</li>
+		</ul>
+		<ul class="box">
+			<li class="active">111</li>
+			<li>222</li>
+			<li>333</li>
+			<li>444</li>
+			<li>555</li>
+		</ul>
+	</div>
+	<div class="container2">
+		<ul class="header">
+			<li class="active">111</li>
+			<li>222</li>
+			<li>333</li>
+			<li>444</li>
+			<li>555</li>
+		</ul>
+		<ul class="box">
+			<li class="active">aaa</li>
+			<li>bbb</li>
+			<li>ccc</li>
+			<li>ddd</li>
+			<li>eee</li>
+		</ul>
+	</div>
+	<script src="./main.js"></script>
+</body>
+</html>
