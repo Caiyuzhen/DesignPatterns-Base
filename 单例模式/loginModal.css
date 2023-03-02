@@ -1,0 +1,13 @@
+.login-modal {
+	position: fixed;
+	width: 200px;
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+	border-radius: 12px;
+	color: white;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);/*自身的一半*/
+	background-color: #3280ff;
+}
