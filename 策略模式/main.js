@@ -2,6 +2,28 @@
 		开放封闭原则
 			对扩展开放，对修改封闭
 */
+// 函数式的写法
+let strategryFn = {
+	'S': (salary) => {
+		return salary * 4
+	},
+	'A': (salary) => {
+		return salary * 3
+	},
+	'B': (salary) => {
+		return salary * 2
+	},
+	'C': (salary) => {
+		return salary * 1
+	}
+}
+
+function calBonus (level, salary)  {
+	return strategryFn[level] (salary) //🔥🔥返回的是👆一个函数, 所以这里要传入参数！！ (salary) => {return salary * n},
+}
+
+const LeeMing = calBonus('A', 10000) //
+console.log(LeeMing)
 
 
 /*//不抽象类的写法
