@@ -6,6 +6,58 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>策略模式</title>
 	<h4>策略模式</h4>
+	<style>
+		#myList_1, #myList_2 {
+			display: flex;
+			flex-direction: column;
+			gap: 32px;
+		}
+
+		li {
+			width: 50%;
+			display: flex;
+			justify-content:space-between;
+		}
+
+		/*👇审批是否通过的颜色*/
+		.noStart {
+			height: 32px;
+			width: 120px;
+			text-align: center;
+			line-height: 32px;
+			border-radius: 8px;
+			color: #14131b;
+			background-color: #b5b3c3;
+		}
+
+		.approve {
+			height: 32px;
+			width: 120px;
+			text-align: center;
+			line-height: 32px;
+			border-radius: 8px;
+			color: #084136;
+			background-color: #49d8b2;
+		}
+
+		.noApprove {
+			height: 32px;
+			width: 120px;
+			text-align: center;
+			line-height: 32px;
+			border-radius: 8px;
+			color: #410831;
+			background-color: #ff9cc5;
+		}
+	</style>
+
+	<!-- 👇要渲染的数据 -->
+	<h3>列表-1
+		<ul id="myList_1"></ul>
+	</h3>
+	<h3>列表-2
+		<ul id="myList_2"></ul>
+	</h3>
 </head>
 <body>
 	<script src="./main.js"></script>
