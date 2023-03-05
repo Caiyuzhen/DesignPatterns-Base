@@ -1,6 +1,6 @@
 /*
 	【观察者模式】
-		1.包含【被观察目标】和【观察者本身】
+		1.包含【被观察目标】和【观察者本身】两个部分, 两者之间相互依赖
 		2.一个【被观察目标】可以有多个【观察者】, 当目标【被观察者对象】状态发生改变时, 会通知所有【观察者】
 		3.好处是不用在一个对象内再去调用另外一个对象, 减少了耦合度
 		4.比如用在后台系统的通信
@@ -125,7 +125,7 @@ let oLi = document.querySelectorAll('.left li')
 for(let i = 0; i < oLi.length; i++) {
 	oLi[i].addEventListener('click', function(){ //给每一个 li 添加点击事件
 		console.log(i, oLi[i]) //0 , 1 , 2 , 3
-		console.log(this.innerHTML) // 拿到 tab 的文本内容
+		console.log(this.innerHTML) // 拿到 tab 的文本内容, this 就是当前点击的 li
 		subjectFn.notify(this.innerHTML) //🔥🔥🔥把 tab 的文本内容传入到【🔵被观察者的方法】中, 去更新 DOM
 	}
 )}
