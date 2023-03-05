@@ -4,11 +4,72 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>观察者模式</title>
-	<h4>观察者模式</h4>
+	<title>👀 观察者模式</title>
+	<h4>👀 观察者模式</h4>
 </head>
-<body>
 
+<style>
+	.header {
+		font-size: 20px;
+		font-weight: bold;
+		margin-bottom: 8px;
+	}
+
+	.box {
+		display: flex;
+		flex-direction: row;
+		gap: 12px;
+		height: 500px;
+	}
+
+	.box .left {
+		width: 200px;
+		background-color: skyblue;
+		border-radius: 12px;
+	}
+
+	ul > li {
+		padding: 4px 0;
+		cursor: pointer;
+	}
+
+	.box .right {
+		flex: 1;/*占满屏幕*/
+		background-color: bisque;
+		border-radius: 12px;
+	}
+
+	.bread {
+		font-size: 14px;
+		font-weight: bold;
+		margin-top: 12px;
+		margin-left: 12px;
+	}
+
+</style>
+<body>
+	<!-- 显示路径信息 -->
+	<header class="header">
+		首页
+	</header>
+
+	<div class="box">
+		<!-- 左侧目录 -->
+		<div class="left">
+			<ul>
+				<li>首页</li>
+				<li>用户管理</li>
+				<li>权限管理</li>
+				<li>新闻管理</li>
+			</ul>
+		</div>
+
+		<!-- 右侧内容 -->
+		<div class="right">
+			<!-- 【面包屑】- 👀观察者 -->
+			<div class="bread"> </div>
+		</div>
+	</div>
 	<script src="./main.js"></script>
 </body>
 </html>
