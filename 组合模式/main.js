@@ -74,7 +74,7 @@ jsFolder.add(jsB)
 // 【根文件夹】方法
 const FolderFn_2 = function(folder) {
 	this.folder = folder 
-	this.list = [] //用于存放文件夹下的【文件】或【子文件夹】
+	this.list = [] //🚀🚀🚀用于存放文件夹下的【文件】或【子文件夹】, 此时就收集了所有的【文件】、【子文件夹】！！！！
 }
 
 FolderFn_2.prototype.add = function(res) {
@@ -82,10 +82,28 @@ FolderFn_2.prototype.add = function(res) {
 }
 
 FolderFn_2.prototype.scan = function() { //扫描文件夹的方法
-	console.log('开始扫描文件夹: ' + this.folder)
+	console.log('开始扫描文件夹...: ' + this.folder)
+	// 声明 oChildUl
+	let oChildUl = null
+
+	if(this.folder === 'root') {
+		console.log('不创建根节点, 因为已经在 html 内创建了')
+	} else {
+		const root = document.querySelector('#root') //获取根节点
+		const oUl = document.createElement('ul')//创建 list 结构
+		const oLi = document.createElement('li') //创建 list 结构
+		oLi.innerHTML = this.folder
+
+		oChildUl = document.createElement('ul') //🔥创建【子文件】内容(用来装下面 FileFn_2 生成出来的内容)
+
+		oLi.appendChild(oChildUl)//子文件、子文件夹都放到 oLi 中
+		oUl.appendChild(oLi)
+		root.appendChild(oUl)
+	}
 
 	for(let i = 0; i < this.list.length; i++) {
-		this.list[i].scan() //🔥🔥🔥如果文件夹内被添加了很多【子文件夹】, ⚡️那么就会进行递归调用（让【子文件夹】也调用 【Folder】这个方法!!
+		// 👇👇👇核心就是调用【文件】、【子文件夹】的 scan 方法, 并把这些数据挂载到 oChildUl 上！！形成树状结构！！
+		this.list[i].scan(oChildUl) //🔥🔥🔥如果文件夹内被添加了很多【子文件夹】, ⚡️那么就会进行递归调用（让【子文件夹】也调用 【Folder】这个方法!!
 	}
 }
 
@@ -95,8 +113,12 @@ const FileFn_2 = function(file) {
 	this.file = file
 }
 
-FileFn_2.prototype.scan = function() {
+FileFn_2.prototype.scan = function(oChildUl) {//把空的 ul （oChildUl） 传入给 FileFn_2
+	console.log(oChildUl)
 	console.log('开始扫描文件: ' + this.file)
+	const oLi = document.createElement('li')//添加回夫组件传来的 oChildUl
+	oLi.innerHTML = this.file
+	oChildUl.appendChild(oLi)
 }
 
 
@@ -108,7 +130,7 @@ let htmlFolder_2 = new FolderFn_2('用户管理')
 let cssFolder_2 = new FolderFn_2('权限管理') 
 let jsFolder_2 = new FolderFn_2('新闻管理') 
 
-//把【子文件夹】添加到【根文件夹】中
+//把【子文件夹】添加到【根文件夹】中（👈👈👈产生关联】）
 rootFolder_2.add(htmlFolder_2)
 rootFolder_2.add(cssFolder_2)
 rootFolder_2.add(jsFolder_2)
@@ -121,7 +143,7 @@ let editPermission = new FileFn_2('cssB')
 let addNews = new FileFn_2('添加新闻')
 let editNews = new FileFn_2('编辑新闻')
 
-//把【文件】添加到【子文件夹】中
+//把【文件】添加到【子文件夹】中（👈👈👈产生关联】）
 htmlFolder_2.add(addUser)
 htmlFolder_2.add(editUser)
 cssFolder_2.add(addPermission)
