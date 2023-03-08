@@ -15,6 +15,7 @@
 	这种方式避免了同事之间的直接依赖关系，使系统更加灵活和易于扩展。
 */ 
 
+//中介者(Book 更新后就会通知所有的 User)
 class Library {
 	constructor() {
 	  this.books = []
@@ -31,22 +32,28 @@ class Library {
 	  this.notifyAll('userAdded', user)
 	}
   
+	// 通知所有的用户 User
 	notifyAll(eventName, data) {
-	  this.users.forEach((user) => user.onNotify(eventName, data))
+	  this.users.forEach((user) => user.onNotify(eventName, data)) //🔥通知所有的 user 实例
 	}
   }
   
+
+
   class Book {
 	constructor(title, author) {
 	  this.title = title
 	  this.author = author
 	}
   
+	// 图书的作者和标题
 	toString() {
 	  return `${this.title} by ${this.author}`
 	}
   }
   
+
+
   class User {
 	constructor(name) {
 	  this.name = name
